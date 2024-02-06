@@ -74,7 +74,7 @@ const gallery = document.querySelector('.gallery');
 const markup = images
   .map(({ preview, original, description }) => {
     return `<li class="gallery-item">
-	<a class="gallery-link" href="${original}" title="tratata">
+	<a class="gallery-link" href="${original}">
 		<img 
 			class="gallery-image" 
 			src="${preview}" 
@@ -88,22 +88,9 @@ const markup = images
 gallery.insertAdjacentHTML('beforeend', markup);
 
 let galleryItem = new SimpleLightbox('.gallery a', {
-    captions: true,
     captionSelector: 'img',
-    captionType: 'attr',
     captionsData: 'alt',
-    captionPosition: 'bottom',
     captionDelay: 250,
 });
 
-
-
-galleryItem.on('show.simplelightbox', function () {
-    console.log('hello');
-});
-
-
-// captionSelector	'img'	
-// captionType	'attr'	
-// captionsData	title	
-// captionPosition	'bottom'
+galleryItem.on('show.simplelightbox', function () {});
