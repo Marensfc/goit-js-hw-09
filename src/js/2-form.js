@@ -6,18 +6,18 @@ const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
 if((savedData !== null) && (savedData.userEmail !== undefined, savedData.userMessage !== undefined)) {
   form.elements.email.value = savedData.userEmail;
-  form.elements.message.value = savedData.userMessage;
+  form.elements.message.value = savedData.userMessage
 }
 
 form.addEventListener('input', saveValueToLS);
 
 function saveValueToLS(evt) {
-  const userEmail = (form.elements.email.value).trim();
-  const userMessage = (form.elements.message.value).trim();
+  const email = (form.elements.email.value).trim();
+  const message = (form.elements.message.value).trim();
 
   const userData = {
-    userEmail,
-    userMessage,
+    email,
+    message,
   };
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(userData));
@@ -28,10 +28,10 @@ form.addEventListener('submit', removeValueFromLS);
 function removeValueFromLS(evt) {
   evt.preventDefault();
 
-  const userEmail = (form.elements.email.value).trim();
-  const userMessage = (form.elements.message.value).trim();
+  const email = (form.elements.email.value).trim();
+  const message = (form.elements.message.value).trim();
 
-  if(userEmail.length === 0 || userMessage.length === 0) return;
+  if(email === '' || message === '') {alert('all fields must be full'); return};
 
   const parsedValue = JSON.parse(localStorage.getItem(STORAGE_KEY));
   console.log(parsedValue);

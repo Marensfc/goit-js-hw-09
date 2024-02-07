@@ -93,4 +93,4 @@ let galleryItem = new SimpleLightbox('.gallery a', {
     captionDelay: 250,
 });
 
-galleryItem.on('show.simplelightbox', function () {});
+galleryItem.on('show.simplelightbox');
